@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="PetVacinas.ConsoleApp/PetVacinas.ConsoleApp.csproj" />
+  <Project Path="PetVacinas.Core/PetVacinas.Core.csproj" />
+  <Project Path="PetVacinas.Tests/PetVacinas.Tests.csproj" />
+</Solution>
