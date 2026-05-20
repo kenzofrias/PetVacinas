@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using PetVacinas.Core.Models;
 
 namespace PetVacinas.Core.Interfaces
 {
