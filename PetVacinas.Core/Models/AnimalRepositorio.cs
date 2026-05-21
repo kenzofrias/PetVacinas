@@ -22,8 +22,9 @@ namespace PetVacinas.Core.Models
 
             if (_animais.ContainsKey(animal.Id))
                 throw new InvalidOperationException($"Um animal com o ID {animal.Id} já existe.");
-            
+
             _animais[animal.Id] = animal;
+            Console.WriteLine($"Cadastro de {animal.Nome} realizado com sucesso.");
         }
 
         public IAnimal ObterPorId(int id)

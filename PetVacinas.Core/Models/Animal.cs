@@ -33,12 +33,14 @@ namespace PetVacinas.Core.Models
             _vacinacoes = new Stack<IVacinacao>();
         }
 
-        public void RegistrarVacinacaoAnimal(IVacinacao vacinacao)
+        public IVacinacao RegistrarVacinacaoAnimal(IVacinacao vacinacao)
         {
             if (vacinacao == null)
                 throw new ArgumentNullException(nameof(vacinacao));
 
             _vacinacoes.Push(vacinacao);
+            Console.WriteLine($"Vacinação para {Nome} registrada com sucesso.");
+            return vacinacao;
         }
 
         public override string ToString()

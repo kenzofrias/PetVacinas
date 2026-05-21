@@ -13,6 +13,6 @@ namespace PetVacinas.Core.Interfaces
         string Dono { get; }
         IReadOnlyCollection<IVacinacao> Vacinacoes { get; }
 
-        void RegistrarVacinacaoAnimal(IVacinacao vacinacao);
+        IVacinacao RegistrarVacinacaoAnimal(IVacinacao vacinacao);
     }
 }

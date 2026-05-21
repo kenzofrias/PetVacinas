@@ -14,39 +14,43 @@ namespace PetVacinas.Core.Models
             _animalRepositorio = new AnimalRepositorio();
         }   
 
-        public void CadastrarAnimal(IAnimal animal)
+        public IAnimal CadastrarAnimal(IAnimal animal)
         {
             _animalRepositorio.Adicionar(animal);
+            return animal;
         }
 
-        public void ObterAnimalPorId(int id)
+        public IAnimal ObterAnimalPorId(int id)
         {
             var animal = _animalRepositorio.ObterPorId(id);
             Console.WriteLine(animal.ToString());
+            return animal;
         }
 
-        public void ObterHistoricoDeVacinacoes(int animalId)
+        public IEnumerable<IVacinacao> ObterHistoricoDeVacinacoes(int animalId)
         {
             var animal = _animalRepositorio.ObterPorId(animalId);
             foreach (var vacinacao in animal.Vacinacoes)
             {
                 Console.WriteLine(vacinacao.ToString());
             }
+            return animal.Vacinacoes;
         }
 
-        public void ObterTodosAnimais()
+        public IEnumerable<IAnimal> ObterTodosAnimais()
         {
             var animais = _animalRepositorio.ObterTodos();
             foreach (var animal in animais)
             {
                 Console.WriteLine(animal.ToString());
             }
+            return animais;
         }
 
-        public void RegistrarVacinacao(int animalId, IVacinacao vacinacao)
+        public IVacinacao RegistrarVacinacao(int animalId, IVacinacao vacinacao)
         {
             var animal = _animalRepositorio.ObterPorId(animalId);
-            animal.RegistrarVacinacaoAnimal(vacinacao);
+            return animal.RegistrarVacinacaoAnimal(vacinacao);
         }
     }
 }
