@@ -15,7 +15,7 @@ namespace PetVacinas.Core.Models
             _animais = new Dictionary<int, IAnimal>();
         }
 
-        public void Adicionar(IAnimal animal)
+        public IAnimal Adicionar(IAnimal animal)
         {
             if (animal == null)
                 throw new ArgumentNullException(nameof(animal));
@@ -24,7 +24,7 @@ namespace PetVacinas.Core.Models
                 throw new InvalidOperationException($"Um animal com o ID {animal.Id} já existe.");
 
             _animais[animal.Id] = animal;
-            Console.WriteLine($"Cadastro de {animal.Nome} realizado com sucesso.");
+            return ObterPorId(animal.Id);
         }
 
         public IAnimal ObterPorId(int id)

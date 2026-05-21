@@ -39,7 +39,6 @@ namespace PetVacinas.Core.Models
                 throw new ArgumentNullException(nameof(vacinacao));
 
             _vacinacoes.Push(vacinacao);
-            Console.WriteLine($"Vacinação para {Nome} registrada com sucesso.");
             return vacinacao;
         }
 
