@@ -16,8 +16,7 @@ namespace PetVacinas.Core.Models
 
         public IAnimal CadastrarAnimal(IAnimal animal)
         {
-            _animalRepositorio.Adicionar(animal);
-            return animal;
+            return _animalRepositorio.Adicionar(animal);
         } // Mostrar mensagem de sucesso ao cadastrar o animal
 
         public IAnimal ObterAnimalPorId(int id)

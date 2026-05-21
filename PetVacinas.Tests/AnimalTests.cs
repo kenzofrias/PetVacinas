@@ -51,9 +51,6 @@ namespace PetVacinas.Tests
             Assert.Empty(animalCadastrado.Vacinacoes);
         }
 
-        // [Fact] DeveMostrarHistoricoDeVacinacoesDOAnimalComVacinacoesRegistradas
-        // NoEmpty e Equal para comparações 
-
         [Fact]
         public void DeveObterTodosOsAnimaisCadastradosEPresentesNoRepositorio()
         {
@@ -68,9 +65,65 @@ namespace PetVacinas.Tests
             var result = _animalService.ObterTodosAnimais();
             //Assert
             Assert.NotEmpty(result);
+            Assert.Equal(3, result.Count());
+            Assert.Contains(result, a => a.Nome == "Luna");
+            Assert.Contains(result, a => a.Nome == "Max");
+            Assert.Contains(result, a => a.Nome == "Bella");
         }
+
+        // [Fact] DeveMostrarHistoricoDeVacinacoesDoAnimalComVacinacoesRegistradas
+        // NoEmpty, Equal e Contains para comparações
 
         // [Fact] DeveRegistrarVacinacaoComSucessoNoAnimal
         // Equal para comparar a vacinação registrada com a vacinação retornada no histórico do animal
+
+        // Falhas
+        [Fact]
+        public void DeveRetornarExceçãoAoTentarCadastrarAnimalNulo()
+        {
+            //Arrage
+            Animal animal = null;
+            //Act + Assert
+            Assert.Throws<ArgumentNullException>(() => _animalService.CadastrarAnimal(animal));
+        }
+
+        [Fact]
+        public void DeveRetornarExceçãoAoTentarCadastrarAnimalComIdJaExistente()
+        {
+            //Arrange
+            var animal = new Animal("Rex", "Labrador", "João");
+            //Act
+            _animalService.CadastrarAnimal(animal);
+            //Assert
+            Assert.Throws<InvalidOperationException>(() => _animalService.CadastrarAnimal(animal));
+        }
+
+        [Fact]
+        public void DeveRetornarExceçãoAoTentarEncontrarAnimalComIdInexistente()
+        {
+            //Arrage
+            var idInexistente = 999;
+            //Act + Assert
+            Assert.Throws<KeyNotFoundException>(() => _animalService.ObterAnimalPorId(idInexistente));
+        }
+
+        [Fact]
+        public void DeveRetornarExcecaoAoTentarAcessarListaVaziaDeAnimais()
+        {
+            //Act + Assert
+            Assert.Throws<InvalidOperationException>(() => _animalService.ObterTodosAnimais());
+        }
+        
+        [Fact]
+        public void DeveRetornarExcecaoAoTentarRegistrarVacinacaoNula()
+        {
+            // Arrage
+            var animal = new Animal("Rex", "Labrador", "João");
+            Vacinacao vacinacaoNula = null;
+            // Act
+            _animalService.CadastrarAnimal(animal);
+            // Assert
+            Assert.Throws<ArgumentNullException>(() => _animalService.RegistrarVacinacao(animal.Id, vacinacaoNula));
+        }
     }
 }

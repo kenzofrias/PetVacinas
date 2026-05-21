@@ -18,7 +18,7 @@ namespace PetVacinas.Core.Models
         public IAnimal Adicionar(IAnimal animal)
         {
             if (animal == null)
-                throw new ArgumentNullException(nameof(animal));
+                throw new ArgumentNullException("Animal não pode ser nulo.", nameof(animal));
 
             if (_animais.ContainsKey(animal.Id))
                 throw new InvalidOperationException($"Um animal com o ID {animal.Id} já existe.");

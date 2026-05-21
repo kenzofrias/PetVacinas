@@ -17,6 +17,11 @@ namespace PetVacinas.Core.Models
         public string Dono { get; } = string.Empty;
         public IReadOnlyCollection<IVacinacao> Vacinacoes => _vacinacoes;
 
+        public Animal()
+        {
+            _vacinacoes = new Stack<IVacinacao>();
+        }
+
         public Animal(string nome, string raca, string dono)
         {
             if (string.IsNullOrWhiteSpace(nome))
