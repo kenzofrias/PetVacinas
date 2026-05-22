@@ -24,8 +24,7 @@ namespace PetVacinas.Core.Services
 
         public IAnimal ObterAnimalPorId(int id)
         {
-            var animal = _animalRepositorio.ObterPorId(id);
-            return animal;
+            return _animalRepositorio.ObterPorId(id);
         } // Mostrar detalhes do animal encontrado
 
         public IEnumerable<IVacinacao> ObterHistoricoDeVacinacoes(int animalId)
@@ -36,8 +35,7 @@ namespace PetVacinas.Core.Services
 
         public IEnumerable<IAnimal> ObterTodosAnimais()
         {
-            var animais = _animalRepositorio.ObterTodos();
-            return animais;
+            return _animalRepositorio.ObterTodos();
         } // Percorrer e mostrar os detalhes de cada animal cadastrado
 
         public IVacinacao RegistrarVacinacao(int animalId, IVacinacao vacinacao)

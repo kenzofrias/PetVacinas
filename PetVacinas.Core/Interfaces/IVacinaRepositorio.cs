@@ -7,7 +7,7 @@ namespace PetVacinas.Core.Interfaces
 {
     public interface IVacinaRepositorio
     {
-        void Adicionar(IVacina vacina);
+        IVacina Adicionar(IVacina vacina);
         IVacina ObterPorId(int id);
         IEnumerable<IVacina> ObterTodas();
     }
