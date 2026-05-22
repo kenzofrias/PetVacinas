@@ -9,9 +9,11 @@ namespace PetVacinas.Core.Models
     public class AnimalService : IAnimalService
     {
         private readonly IAnimalRepositorio _animalRepositorio;
+        private readonly IVacinacaoRepositorio _vacinacaoRepositorio;
         public AnimalService()
         {
             _animalRepositorio = new AnimalRepositorio();
+            _vacinacaoRepositorio = new VacinacaoRepositorio();
         }   
 
         public IAnimal CadastrarAnimal(IAnimal animal)
@@ -40,6 +42,7 @@ namespace PetVacinas.Core.Models
         public IVacinacao RegistrarVacinacao(int animalId, IVacinacao vacinacao)
         {
             var animal = _animalRepositorio.ObterPorId(animalId);
+            _vacinacaoRepositorio.Adicionar(vacinacao);
             return animal.RegistrarVacinacaoAnimal(vacinacao);
         } // Mostrar mensagem de sucesso 
     }
