@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PetVacinas.Core.Interfaces;
+using PetVacinas.Core.Models;
 
-namespace PetVacinas.Core.Models
+namespace PetVacinas.Core.Services
 {
     public class AnimalService : IAnimalService
     {

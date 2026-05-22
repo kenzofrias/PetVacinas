@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PetVacinas.Core.Services;
 using PetVacinas.Core.Models;
 using Xunit;
 
