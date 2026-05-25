@@ -175,14 +175,19 @@ namespace PetVacinas.ConsoleApp.UI
                         int idAnimalH = ReceberInteiro("Animal para exibir histórico (informe o ID): ");
                         IEnumerable<IVacinacao> vacinacoes = _animalService.ObterHistoricoDeVacinacoes(idAnimalH);
                         var animalEncontrado = _animalService.ObterAnimalPorId(idAnimalH);
-                        if (vacinacoes.Count() == 0) 
+                        
+                        if (!vacinacoes.Any())
+                        {
                             Console.WriteLine("\nNenhuma vacinação registrada para este animal.");
+                        }
                         else
+                        {
                             Console.WriteLine($"\nHistórico de vacinações de {animalEncontrado.Nome}: ");
                             foreach (IVacinacao vacinacaoAtual in vacinacoes)
                             {
                                 Console.WriteLine(vacinacaoAtual.ToString());    
                             }
+                        }
                         break;
                     case 7:
                         Console.Clear();
