@@ -193,6 +193,39 @@ dotnet test
    dotnet run --project PetVacinas.ConsoleApp
    ```
 
+   ```
+   *Você verá a validação das regras de negócio atestadas como "Passed".*
+
+
+## 🖥️ Demonstração de Uso
+
+Exemplo de uma interação real com o console ao rodar o aplicativo e cadastrar um animal:
+
+```text
+=============  MENU PET-VACINAS  =============
+1 - Cadastrar animal
+2 - Listar todos os animais
+3 - Cadastrar vacina
+4 - Listar todas as vacinas
+5 - Registrar vacinação em um animal
+6 - Exibir histórico de vacinações de um animal
+7 - Sair
+Escolha uma opção: 1
+
+Informações do animal: 
+Nome do animal: Rex
+Raça do animal: Golden Retriever
+Dono do animal: João
+Rex foi cadastrado (a) com sucesso!
+
+Pressione qualquer tecla para continuar...
+```
+
+## 📌 Considerações
+
+Este projeto foi desenvolvido com foco em consolidar conhecimentos em:
+
+
 
 ## 📌 Considerações e Próximos Passos
 
