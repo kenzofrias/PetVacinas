@@ -221,12 +221,6 @@ Rex foi cadastrado (a) com sucesso!
 Pressione qualquer tecla para continuar...
 ```
 
-## 📌 Considerações
-
-Este projeto foi desenvolvido com foco em consolidar conhecimentos em:
-
-
-
 ## 📌 Considerações e Próximos Passos
 
 Este projeto está em evolução. Como sugestões de melhoria arquitetural (Roadmap):
